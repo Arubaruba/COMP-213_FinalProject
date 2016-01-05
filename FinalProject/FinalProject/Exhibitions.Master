@@ -1,0 +1,63 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Exhibitions.master.cs" Inherits="FinalProject.Exhibitions" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="Foundation.css" rel="stylesheet" />
+    <link href="Styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="top-panel" style="overflow: auto">
+            <div class="row">
+                <div class="large-6 columns">
+                    <h2>National Historical Exhibitions</h2>
+                </div>
+                <div class="large-6 columns large-text-right">
+                    <a class="top-panel-link" href="Home.aspx">
+                        <i class="fa fa-home"></i>
+                        Home
+                    </a>
+                    <a class="top-panel-link" href="Artifacts.aspx">
+                        <i class="fa fa-beer"></i>
+                        Artifacts
+                    </a>
+                    <a class="top-panel-link" href="SpecialEvents.aspx">
+                        <i class="fa fa-group"></i>
+                        Special Events
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-8 columns">
+                <asp:ContentPlaceHolder ID="body" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+
+            <div class="large-4 columns">
+                <div class="callout special-offers">
+                    <h5>
+                        <i class="fa fa-dollar"></i>
+                        Special Offers
+                    </h5>
+                    <hr />
+                </div>
+
+                <div class="callout traveling-exhibtions">
+                    <h5>
+                        <i class="fa fa-truck"></i>
+                        Traveling Exhibitions
+                    </h5>
+                    <hr />
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

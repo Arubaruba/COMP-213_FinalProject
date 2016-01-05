@@ -1,0 +1,54 @@
+﻿body {
+    background: #fff;
+}
+
+hr {
+    border-color: inherit;
+}
+
+.top-panel {
+    color: #f0f0f0;
+    background: #2199e8;
+    background: linear-gradient(to right, #66acdb, #2587c7);
+    margin-bottom: 20px;
+    line-height: 5em;
+}
+
+.top-panel h2 {
+    margin-top: 14px;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.top-panel-link {
+    color: rgba(255, 255, 255, 0.84);
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.24);
+    border: 1px solid;
+    border-radius: 2px;
+    margin-left: 40px;
+    text-decoration: none;
+}
+
+.top-panel-link:first-of-type {
+    margin-left: 0;
+}
+
+.top-panel-link:hover {
+    color: rgba(255, 255, 255, 0.84);
+}
+
+.top-panel-link:active {
+    color: rgba(255, 255, 255, 0.24);
+}
+
+.callout.special-offers {
+    color: #fff;
+    border-radius: 3px;
+    background: #5DB853;
+}
+
+.callout.traveling-exhibtions {
+    color: #fff;
+    border-radius: 3px;
+    background: #b8a653;
+}
