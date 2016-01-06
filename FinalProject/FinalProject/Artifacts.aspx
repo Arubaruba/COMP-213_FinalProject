@@ -22,7 +22,7 @@
 
     <div class="row">
 
-        <div class="large-5 columns">
+        <div class="large-4 columns">
             <asp:DropDownList
                 ID="ExhibitionsDropdownList"
                 runat="server"
@@ -39,7 +39,7 @@
         <div class="large-2 columns">
             <input type="submit" class="button" value="Search" style="width: 100%; box-sizing: border-box" />
         </div>
-        <div class="large-2 columns">&nbsp;</div>
+        <div class="large-3 columns">&nbsp;</div>
     </div>
     <div class="row">
         <div class="large-12 columns">
