@@ -49,14 +49,14 @@
                     <hr />
 
                     <asp:SqlDataSource ID="SpecialOffersSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:historical_exhibitionsDevartConnectionString %>" ProviderName="<%$ ConnectionStrings:historical_exhibitionsConnectionString.ProviderName %>"
-                        SelectCommand="SELECT exhibition.name, MAX(special_offer.percent_off) AS discount FROM exhibition 
+                        SelectCommand="SELECT exhibition.id, exhibition.name, MAX(special_offer.percent_off) AS discount FROM exhibition 
                         JOIN special_offer ON special_offer.exhibition_id = exhibition.id AND NOW() BETWEEN special_offer.starts AND special_offer.expires
-                        GROUP BY exhibition.name"></asp:SqlDataSource>
+                        GROUP BY exhibition.name, exhibition.id"></asp:SqlDataSource>
                     <asp:Repeater runat="server" DataSourceID="SpecialOffersSqlDataSource">
                         <ItemTemplate>
                             <ul style="list-style: none">
                                 <li>
-                                    <%# DataBinder.Eval(Container.DataItem, "name") %>
+                                    <a href="BuyTicket.aspx?exhibition=<%# DataBinder.Eval(Container.DataItem, "id") %>" class="small">Buy Ticket</a> <%# DataBinder.Eval(Container.DataItem, "name") %>
                                     - <b><%# DataBinder.Eval(Container.DataItem, "discount") %>% Off</b>
                                 </li>
                             </ul>
@@ -72,12 +72,12 @@
                     <hr />
 
                     <asp:SqlDataSource ID="TravelingExhibitionsSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:historical_exhibitionsDevartConnectionString %>" ProviderName="<%$ ConnectionStrings:historical_exhibitionsConnectionString.ProviderName %>"
-                        SelectCommand="SELECT name FROM exhibition WHERE type = 'Traveling'"></asp:SqlDataSource>
+                        SelectCommand="SELECT id, name FROM exhibition WHERE type = 'Traveling'"></asp:SqlDataSource>
                     <asp:Repeater runat="server" DataSourceID="TravelingExhibitionsSqlDataSource">
                         <ItemTemplate>
                             <ul style="list-style: none">
                                 <li>
-                                    <%# DataBinder.Eval(Container.DataItem, "name") %>
+                                    <a href="BuyTicket.aspx?exhibition=<%# DataBinder.Eval(Container.DataItem, "id") %>" class="small">Buy Ticket</a> <%# DataBinder.Eval(Container.DataItem, "name") %>
                                 </li>
                             </ul>
                         </ItemTemplate>

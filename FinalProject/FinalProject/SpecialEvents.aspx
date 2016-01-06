@@ -12,7 +12,7 @@
         <ItemTemplate>
             <p>
                 <h5><%# DataBinder.Eval(Container.DataItem, "special_event")%></h5>
-                <i><%# DataBinder.Eval(Container.DataItem, "exhibition")%></i> - 
+                At the <i><%# DataBinder.Eval(Container.DataItem, "exhibition")%></i> - 
                 <%# DataBinder.Eval(Container.DataItem, "begins")%>
             </p>
         </ItemTemplate>

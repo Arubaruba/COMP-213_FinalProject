@@ -9,12 +9,17 @@
     <hr />
 
     <asp:SqlDataSource ID="MuseumsSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:historical_exhibitionsDevartConnectionString %>" ProviderName="<%$ ConnectionStrings:historical_exhibitionsConnectionString.ProviderName %>"
-        SelectCommand="SELECT name, description FROM exhibition WHERE type = 'Museum'"></asp:SqlDataSource>
+        SelectCommand="SELECT id, name, description FROM exhibition WHERE type = 'Museum'"></asp:SqlDataSource>
     <asp:Repeater runat="server" DataSourceID="MuseumsSqlDataSource">
         <ItemTemplate>
             <p>
                 <h5><%# DataBinder.Eval(Container.DataItem, "name")%></h5>
                 <%# DataBinder.Eval(Container.DataItem, "description")%>
+
+                <div>
+                    <i class="fa fa-ticket"></i>
+                    <a href="BuyTicket.aspx?exhibition=<%# DataBinder.Eval(Container.DataItem, "id") %>">Buy Ticket</a>
+                </div>
             </p>
         </ItemTemplate>
     </asp:Repeater>

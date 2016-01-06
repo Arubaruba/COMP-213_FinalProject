@@ -96,6 +96,7 @@
   <ItemGroup>
     <Content Include="Admin.aspx" />
     <Content Include="Artifacts.aspx" />
+    <Content Include="BuyTicket.aspx" />
     <Content Include="packages.config" />
     <Content Include="Exhibitions.Master" />
     <None Include="Web.Debug.config">
@@ -126,6 +127,13 @@
     </Compile>
     <Compile Include="Artifacts.aspx.designer.cs">
       <DependentUpon>Artifacts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BuyTicket.aspx.cs">
+      <DependentUpon>BuyTicket.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BuyTicket.aspx.designer.cs">
+      <DependentUpon>BuyTicket.aspx</DependentUpon>
     </Compile>
     <Compile Include="Exhibitions.Master.cs">
       <DependentUpon>Exhibitions.Master</DependentUpon>
