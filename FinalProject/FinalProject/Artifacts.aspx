@@ -1,28 +1,45 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Exhibitions.Master" AutoEventWireup="true" CodeBehind="Artifacts.aspx.cs" Inherits="FinalProject.Artifacts" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="body" runat="server">
-    <h3><i class="fa fa-beer"></i> Artifacts</h3>
+
+    <asp:SqlDataSource ID="ArtifactsSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:historical_exhibitionsConnectionString %>" ProviderName="<%$ ConnectionStrings:historical_exhibitionsConnectionString.ProviderName %>"
+        SelectCommand='SELECT artifact.name AS "Artifact", exhibition.name AS "Exhibition", origin_year AS "Year" FROM artifact JOIN exhibition ON exhibition.id = artifact.exhibition_id'>
+    </asp:SqlDataSource>
+
+    <asp:SqlDataSource ID="ExhibitionsSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:historical_exhibitionsConnectionString %>" ProviderName="<%$ ConnectionStrings:historical_exhibitionsDevartConnectionString.ProviderName %>"
+        SelectCommand="SELECT  1 AS id, ? AS name">
+        <SelectParameters>
+            <asp:Parameter DBType="Int32" DefaultValue="1244" Name="1" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+
+    <h3><i class="fa fa-beer"></i>Artifacts</h3>
     <hr />
 
     <div class="row">
+
         <div class="large-5 columns">
-            <select>
-                <option value="any">Any Exhibition</option>
-                <option value="husker">Husker</option>
-                <option value="starbuck">Starbuck</option>
-                <option value="hotdog">Hot Dog</option>
-                <option value="apollo">Apollo</option>
-            </select>
+            <asp:DropDownList
+                ID="ExhibitionsDropdownList"
+                runat="server"
+                DataValueField="id"
+                DataTextField="name"
+                DataSourceID="ExhibitionsSqlDataSource"
+                AppendDataBoundItems="true">
+                <asp:ListItem Value="-1" Text="Any Exhibition" Selected="True" />
+            </asp:DropDownList>
         </div>
+        <div class="large-2 columns">&nbsp;</div>
         <div class="large-3 columns">
-            <input type="text" placeholder="Key Terms" />
+            <input type="text" name="key_terms" placeholder="Key Terms" />
         </div>
         <div class="large-2 columns">
-            <input type="submit" class="button" value="Search" style="width:100%; box-sizing:border-box"/>
-        </div>
-        <div class="large-2 columns">
-            &nbsp;
+            <input type="submit" class="button" value="Search" style="width: 100%; box-sizing: border-box" />
         </div>
     </div>
-
+    <div class="row">
+        <div class="large-12 columns">
+            <asp:GridView ID="ArtifactsGridView" runat="server" DataSourceID="ArtifactsSqlDataSource" CssClass="artifacts-table" />
+        </div>
+    </div>
 </asp:Content>
